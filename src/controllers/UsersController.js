@@ -1,3 +1,5 @@
+const AppError = require ("../utils/AppError");
+
 class UsersController {
     /**
      * index - GET para listar varios registros.
@@ -10,6 +12,11 @@ class UsersController {
     //método create
     create(request, response){
         const {name , email, password} = request.body;
+
+        //se o nome não existe:
+        if(!name){
+            throw new AppError("Nome é obrigatório!");
+        }
 
         response.status(201).json({name , email, password});
     }
