@@ -6,8 +6,6 @@ const usersRoutes = Router ();
 
 const usersController = new UsersController();
 
-
-
 // usersRoutes.use(myMiddleware);
 usersRoutes.post("/", usersController.create);
 
